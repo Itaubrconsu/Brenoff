@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090b0c">
+<title>Sensi X FF — Breno</title>
+<style>
+:root{--line:#303a33;--green:#a3ff12;--muted:#aab4ac;--red:#ff6666}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#172018,#090b0c 55%);color:#f3f6f3;font:16px system-ui,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:18px}
+.app{width:100%;max-width:440px;background:#0a0d0bf5;border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 20px 60px #0008}
+.brand{text-align:center;padding:6px 0 18px;border-bottom:1px solid var(--green);margin-bottom:20px}.logo{font-weight:900;letter-spacing:2px;color:var(--green);font-size:25px}.name{font-size:18px;font-weight:750;margin-top:5px}.sub{font-size:11px;letter-spacing:1.5px;color:#839087;margin-top:5px}
+.center{text-align:center;padding:16px 3px}.shield{font-size:42px;color:var(--green)}h1{font-size:21px;margin:10px 0}p{color:var(--muted);line-height:1.5}
+input[type=password]{width:100%;background:#0d100e;color:white;border:1px solid #465247;border-radius:12px;padding:14px;font-size:18px;letter-spacing:8px;text-align:center;outline:none}input:focus{border-color:var(--green)}
+button{width:100%;padding:13px 14px;border-radius:12px;border:1px solid #455044;background:#151b16;color:#f3f6f3;font-size:14px;font-weight:800;cursor:pointer;margin-top:10px}button.primary{background:var(--green);color:#10150c;border-color:var(--green)}
+.error{color:var(--red);font-size:13px;min-height:18px;margin-top:8px}.row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.card{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid var(--line);border-radius:13px;padding:14px;margin:10px 0;cursor:pointer;background:#0d100e}.card.on{border-color:#668f23}.tag{font-size:11px;font-weight:800;border-radius:30px;padding:6px 9px;background:#303731;color:#c5ccc7;white-space:nowrap}.on .tag{background:#243516;color:var(--green)}
+small{display:block;color:#929d94;margin-top:4px}.range{margin:19px 0}.range input{width:100%;accent-color:var(--green)}.val{color:var(--green);font-weight:800}
+.notice{background:#172016;border:1px solid #314a25;border-radius:12px;padding:14px;margin-top:14px;text-align:center;color:#c7ff9c}.footer{text-align:center;color:#768078;font-size:11px;letter-spacing:1px;margin-top:20px}.hidden{display:none!important}
+</style></head><body><main class="app">
+<header class="brand"><div class="logo">◎ SENSI X FF</div><div class="name">BRENO</div><div class="sub">PAINEL</div></header>
+<section id="login" class="center"><div class="shield">♢</div><h1>Acesso protegido</h1><p>Digite sua senha de 4 dígitos para continuar.</p>
+<form id="loginForm"><input id="pin" type="password" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" autocomplete="off" placeholder="••••" aria-label="Senha de quatro dígitos" required><div id="error" class="error" aria-live="polite"></div><button class="primary" type="submit">ENTRAR</button></form></section>
+<section id="panel" class="hidden"><div class="row"><h1>Painel do Breno</h1><span class="tag" style="color:var(--green)">ATIVO</span></div>
+<div class="card on" data-toggle="hs" role="button" tabindex="0" aria-pressed="true"><div><strong>🎯 HS</strong><small>Opção HS</small></div><span class="tag">ATIVADO</span></div>
+<div class="card on" data-toggle="precisao" role="button" tabindex="0" aria-pressed="true"><strong>Precisão</strong><span class="tag">ATIVADO</span></div>
+<div class="card" data-toggle="estabilidade" role="button" tabindex="0" aria-pressed="false"><strong>Estabilidade</strong><span class="tag">DESATIVADO</span></div>
+<div class="card on" data-toggle="otimizacao" role="button" tabindex="0" aria-pressed="true"><strong>Otimização</strong><span class="tag">ATIVADO</span></div>
+<div class="card on" data-toggle="fps" role="button" tabindex="0" aria-pressed="true"><strong>FPS</strong><span class="tag">ATIVADO</span></div>
+<div class="range"><div class="row"><label for="sens">Sensibilidade</label><span id="sensVal" class="val">75%</span></div><input id="sens" type="range" min="0" max="100" value="75"></div>
+<div class="range"><div class="row"><label for="smooth">Suavidade</label><span id="smoothVal" class="val">60%</span></div><input id="smooth" type="range" min="0" max="100" value="60"></div>
+<button class="primary" id="confirm">CONFIRMAR CONFIGURAÇÕES</button><button id="clear">LIMPAR CONFIGURAÇÕES</button>
+<button id="game">MINIMIZAR PAINEL E ABRIR FREE FIRE</button>
+<div id="notice" class="notice hidden" aria-live="polite"></div><button id="logout">SAIR / BLOQUEAR PAINEL</button></section>
+<footer class="footer">SENSI X FF • BRENO</footer></main>
+<script>
+const DEMO_PASSWORD="1804";
+const login=document.getElementById('login'),panel=document.getElementById('panel'),pin=document.getElementById('pin'),error=document.getElementById('error'),notice=document.getElementById('notice');
+document.getElementById('loginForm').addEventListener('submit',e=>{e.preventDefault();if(pin.value===DEMO_PASSWORD){login.classList.add('hidden');panel.classList.remove('hidden');error.textContent='';pin.value=''}else{error.textContent='Senha incorreta. Tente novamente.';pin.value='';pin.focus()}});
+function showNotice(t){notice.textContent=t+' — Obrigado por usar o painel do Breno!';notice.classList.remove('hidden')}
+function toggleCard(c){let on=c.classList.toggle('on');c.setAttribute('aria-pressed',String(on));c.querySelector('.tag').textContent=on?'ATIVADO':'DESATIVADO';notice.classList.add('hidden')}
+document.querySelectorAll('[data-toggle]').forEach(c=>{c.addEventListener('click',()=>toggleCard(c));c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleCard(c)}})});
+[['sens','sensVal'],['smooth','smoothVal']].forEach(([i,v])=>document.getElementById(i).addEventListener('input',e=>document.getElementById(v).textContent=e.target.value+'%'));
+document.getElementById('confirm').addEventListener('click',()=>showNotice('Configurações confirmadas!'));
+document.getElementById('clear').addEventListener('click',()=>{document.querySelectorAll('[data-toggle]').forEach(c=>{c.classList.remove('on');c.setAttribute('aria-pressed','false');c.querySelector('.tag').textContent='DESATIVADO'});document.getElementById('sens').value=50;document.getElementById('smooth').value=50;document.getElementById('sensVal').textContent='50%';document.getElementById('smoothVal').textContent='50%';showNotice('Configurações limpas.')});
+document.getElementById('game').addEventListener('click',()=>{
+  // Android/Chrome may launch the installed Free Fire app via an intent URL.
+  // Browsers cannot close unrelated tabs or force-close the browser itself.
+  panel.classList.add('hidden');
+  const fallback='https://play.google.com/store/apps/details?id=com.dts.freefireth';
+  window.location.href='intent://#Intent;scheme=freefire;package=com.dts.freefireth;S.browser_fallback_url='+encodeURIComponent(fallback)+';end';
+  setTimeout(()=>{if(!document.hidden){panel.classList.remove('hidden');showNotice('Se o jogo não abriu, abra o Free Fire manualmente.')}},1800);
+});
+document.getElementById('logout').addEventListener('click',()=>{panel.classList.add('hidden');login.classList.remove('hidden');notice.classList.add('hidden');pin.value='';error.textContent='';pin.focus()});
+</script></body></html>
