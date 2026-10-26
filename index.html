@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090b0c"><title>Sensi X FF — Breno</title>
+<link rel="stylesheet" href="css/style.css"></head><body><main class="app">
+<header class="brand"><div class="logo">◎ SENSI X FF</div><div class="name">BRENO</div><div class="sub">PAINEL</div></header>
+<section id="login" class="center"><div class="shield">♢</div><h1>Acesso protegido</h1><p>Digite sua senha de 4 dígitos para continuar.</p>
+<form id="loginForm"><input id="pin" type="password" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" autocomplete="off" placeholder="••••" aria-label="Senha de quatro dígitos" required><div id="error" class="error"></div><button class="primary" type="submit">ENTRAR</button></form></section>
+<section id="panel" class="hidden"><div class="row"><h1>Painel do Breno</h1><span class="tag status">ATIVO</span></div>
+<div class="card on" data-toggle><div><strong>🎯 HS</strong><small>Opção HS</small></div><span class="tag">ATIVADO</span></div>
+<div class="card on" data-toggle><strong>Precisão</strong><span class="tag">ATIVADO</span></div>
+<div class="card" data-toggle><strong>Estabilidade</strong><span class="tag">DESATIVADO</span></div>
+<div class="card on" data-toggle><strong>Otimização</strong><span class="tag">ATIVADO</span></div>
+<div class="card on" data-toggle><strong>FPS</strong><span class="tag">ATIVADO</span></div>
+<div class="range"><div class="row"><label for="sens">Sensibilidade</label><span id="sensVal" class="val">75%</span></div><input id="sens" type="range" min="0" max="100" value="75"></div>
+<div class="range"><div class="row"><label for="smooth">Suavidade</label><span id="smoothVal" class="val">60%</span></div><input id="smooth" type="range" min="0" max="100" value="60"></div>
+<button class="primary" id="confirm">CONFIRMAR CONFIGURAÇÕES</button><button id="clear">LIMPAR CONFIGURAÇÕES</button>
+<button id="game">MINIMIZAR PAINEL E ABRIR FREE FIRE</button><div id="notice" class="notice hidden"></div><button id="logout">SAIR / BLOQUEAR PAINEL</button></section>
+<footer class="footer">SENSI X FF • BRENO</footer></main><script src="js/app.js"></script></body></html>

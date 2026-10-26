@@ -1,0 +1,11 @@
+:root{--line:#303a33;--green:#a3ff12;--muted:#aab4ac;--red:#ff6666}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#172018,#090b0c 55%);color:#f3f6f3;font:16px system-ui,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:18px}
+.app{width:100%;max-width:440px;background:#0a0d0bf5;border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 20px 60px #0008}
+.brand{text-align:center;padding:6px 0 18px;border-bottom:1px solid var(--green);margin-bottom:20px}.logo{font-weight:900;letter-spacing:2px;color:var(--green);font-size:25px}.name{font-size:18px;font-weight:750;margin-top:5px}.sub{font-size:11px;letter-spacing:1.5px;color:#839087;margin-top:5px}
+.center{text-align:center;padding:16px 3px}.shield{font-size:42px;color:var(--green)}h1{font-size:21px;margin:10px 0}p{color:var(--muted);line-height:1.5}
+input[type=password]{width:100%;background:#0d100e;color:white;border:1px solid #465247;border-radius:12px;padding:14px;font-size:18px;letter-spacing:8px;text-align:center;outline:none}input:focus{border-color:var(--green)}
+button{width:100%;padding:13px 14px;border-radius:12px;border:1px solid #455044;background:#151b16;color:#f3f6f3;font-size:14px;font-weight:800;cursor:pointer;margin-top:10px}button.primary{background:var(--green);color:#10150c;border-color:var(--green)}
+.error{color:var(--red);font-size:13px;min-height:18px;margin-top:8px}.row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.card{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid var(--line);border-radius:13px;padding:14px;margin:10px 0;cursor:pointer;background:#0d100e}.card.on{border-color:#668f23}.tag{font-size:11px;font-weight:800;border-radius:30px;padding:6px 9px;background:#303731;color:#c5ccc7;white-space:nowrap}.card.on .tag{background:#243516;color:var(--green)}.status{color:var(--green)}
+small{display:block;color:#929d94;margin-top:4px}.range{margin:19px 0}.range input{width:100%;accent-color:var(--green)}.val{color:var(--green);font-weight:800}
+.notice{background:#172016;border:1px solid #314a25;border-radius:12px;padding:14px;margin-top:14px;text-align:center;color:#c7ff9c}.footer{text-align:center;color:#768078;font-size:11px;letter-spacing:1px;margin-top:20px}.hidden{display:none!important}
